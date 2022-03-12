@@ -24,6 +24,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MANUFACTURER    Keebio
 #define PRODUCT         Keebio Iris Rev. 2
 
+/* Attempt autodetect USB master */
+#define SPLIT_USB_DETECT
+
 /* key matrix size */
 // Rows are doubled-up
 #define MATRIX_ROWS 10
