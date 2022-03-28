@@ -5,31 +5,41 @@
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 #define _QWERTY 0
-#define _LAYER1 1
-#define _LAYER2 2
-#define _LAYER3 3
+#define _LOWER 1
+#define _RAISE 2
+#define _ADJUST 16
+//#define _LAYER1 1
+//#define _LAYER2 2
+//#define _LAYER3 3
 #define _LAYER4 4
 
 
 /*
  * #define _LOWER 1
  * #define _RAISE 2
- * #define _MODIFY 3
  * #define _ADJUST 16
 */
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
-  LAYER1,
-  LAYER2,
-  LAYER3,
+  LOWER,
+  RAISE,
+  ADJUST,
   LAYER4,
+//  LAYER1,
+//  LAYER2,
+//  LAYER3,
+//  LAYER4,
 };
+#define NUMPAD MO(_LOWER)
+#define CMD    MO(_RAISE)
+#define F_PAD  MO(_ADJUST)
+#define KEEB   MO(_LAYER4)
 
-#define NUMPAD MO(_LAYER1)
-#define CMD    MO(_LAYER2)
-#define KEEB   MO(_LAYER3)
-#define F_PAD  MO(_LAYER4)
+//#define NUMPAD MO(_LAYER1)
+//#define CMD    MO(_LAYER2)
+//#define F_PAD  MO(_LAYER3)
+//#define KEEB   MO(_LAYER4)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_ortho_4x12(
@@ -44,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
-[_LAYER1] = LAYOUT_ortho_4x12(
+[_LOWER] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
       KC_ESC,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NLCK, KC_P7,   KC_P8,   KC_P9,   KC_MINS, KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -56,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
-[_LAYER2] = LAYOUT_ortho_4x12(
+[_RAISE] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
       KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -65,18 +75,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_NO,   KC_NO,   KC_MUTE, KC_VOLD, KC_PGDN, KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_TRNS, KC_NO,   KC_NO,   KC_LCTL, KEEB,    KC_LALT,          KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
-  //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
-),
-
-[_LAYER3] = LAYOUT_ortho_4x12(
-  //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      RESET,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,            KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
@@ -90,7 +88,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_PSCR, KC_F10,  KC_F11,  KC_F12,  KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
+),
+
+[_ADJUST] = LAYOUT_ortho_4x12(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
+      RESET,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
+      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
+      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
+      KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,            KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
+  //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 )
+
 
 /* Qwerty
  * ,------------------------------------------  ------------------------------------------.
@@ -110,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ADJUST,  KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_ENT,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
-/* Lower
+* Lower
  * ,------------------------------------------  ------------------------------------------.
  * |   ~  |   !  |   @  |   #  |   $  |   %  |  |   ^  |   &  |   *  |   (  |   )  | Del  |
  * |------+------+------+------+------+-------  -------+------+------+------+------+------|
@@ -128,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
-/* Raise
+* Raise
  * ,------------------------------------------  ------------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |  |   6  |   7  |   8  |   9  |   0  | Del  |
  * |------+------+------+------+------+-------  -------+------+------+------+------+------|
@@ -146,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
-/* Adjust (Lower + Raise)
+* Adjust (Lower + Raise)
  * ,------------------------------------------  ------------------------------------------.
  * |      | Reset|      |      |      |      |  |      |      |      |      |      |  Del |
  * |------+------+------+------+------+-------  -------+------+------+------+------+------|
