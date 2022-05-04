@@ -5,102 +5,86 @@
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 #define _QWERTY 0
-#define _LOWER 1
-#define _RAISE 2
-#define _ADJUST 16
-//#define _LAYER1 1
-//#define _LAYER2 2
-//#define _LAYER3 3
-#define _LAYER4 4
-
-
-/*
- * #define _LOWER 1
- * #define _RAISE 2
- * #define _ADJUST 16
-*/
+#define _NUMPAD 4
+#define _FKEYPAD 5
+#define _SYMBOL 6
+#define _COMMAND 6
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
-  LOWER,
-  RAISE,
-  ADJUST,
-  LAYER4,
-//  LAYER1,
-//  LAYER2,
-//  LAYER3,
-//  LAYER4,
+  NUMPAD,
+  FKEYPAD,
+  SYMBOL,
+  COMMAND
 };
-#define NUMPAD MO(_LOWER)
-#define CMD    MO(_RAISE)
-#define F_PAD  MO(_ADJUST)
-#define KEEB   MO(_LAYER4)
 
-//#define NUMPAD MO(_LAYER1)
-//#define CMD    MO(_LAYER2)
-//#define F_PAD  MO(_LAYER3)
-//#define KEEB   MO(_LAYER4)
+#define NUMPAD  MO(_NUMPAD)
+#define FKEYPAD MO(_FKEYPAD)
+#define SYMBOL  MO(_SYMBOL)
+#define CMD     MO(_COMMAND)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
       KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, RSFT_T(KC_QUOT),
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+LCTL_T(KC_BSLS), KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NUHS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      F_PAD,   KC_TAB,  KC_LALT, KC_LGUI, LOWER,   KC_SPC,           KC_ENT,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+      SYMBOL, KC_TAB,  KC_LALT, KC_LGUI,  NUMPAD,  KC_SPC,           KC_ENT,  FKEYPAD, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
-[_LOWER] = LAYOUT_ortho_4x12(
+[_NUMPAD] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_ESC,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NLCK, KC_P7,   KC_P8,   KC_P9,   KC_MINS, KC_BSPC,
+      KC_ESC,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NLCK, KC_7,    KC_8,    KC_9,   KC_MINS, KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_PGUP, KC_NO,            KC_PSLS, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_DEL,
+      KC_LSFT, KC_NO,   KC_LEFT, KC_RGHT, KC_UP,   KC_NO,            KC_PSLS, KC_4,    KC_5,    KC_6,   KC_PPLS, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_LCTL, KC_NO,   KC_NO,   KC_NO,   KC_PGDN, KC_NO,            KC_PAST, KC_P1,   KC_P2,   KC_P3,   KC_EQL,  KC_NO,
+      KC_LCTL, KC_NO,   KC_NO,   KC_NO,   KC_DOWN, KC_NO,            KC_PAST, KC_1,    KC_2,    KC_3,   KC_EQL,  KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KEEB,    KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,             KC_ENT, KEEB,    KC_P0,   KC_PDOT, KC_PENT, KC_NO
+      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_ENT, KC_TRNS,  KC_0,   KC_PDOT, KC_PENT, KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
-[_RAISE] = LAYOUT_ortho_4x12(
+[_FKEYPAD] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,       LSFT(KC_INS), KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
- LSFT(KC_TAB), KC_TAB, KC_MPLY, KC_VOLU, KC_PGUP,  KC_NO,            KC_NO,   KC_BTN1, KC_BTN2, KC_BTN3, KC_NO,   KC_NO,
+      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PGUP, KC_BTN1, KC_BTN2, KC_BTN3, KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_MUTE, KC_VOLD, KC_PGDN, KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_PGDN,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_TRNS, KC_NO,   KC_NO,   KC_LCTL, KEEB,    KC_LALT,          KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
+      KC_TRNS, KC_TRNS, KC_TRNS, KC_RGUI, KC_TRNS, KC_TRNS,          KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
-[_LAYER4] = LAYOUT_ortho_4x12(
+[_SYMBOL] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_NO,   KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,            KC_INS,  KC_F7,   KC_F8,   KC_F9,   KC_HOME, KC_NO,
+      RESET,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_GRV,  KC_LCBR, KC_RCBR, KC_UNDS, KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,     LSFT(KC_INS), KC_F4,   KC_F5,   KC_F6,   KC_END, KC_NO,
+      KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       LSFT(KC_INS), KC_LBRC, KC_RBRC, KC_MINS, KC_BSLS, KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_PGDN,          KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_NO,   KC_NO,
+      KC_LCTL, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_PSCR, KC_LPRN, KC_RPRN, KC_NUHS, KC_SLSH, KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_PSCR, KC_F10,  KC_F11,  KC_F12,  KC_NO,   KC_NO
+      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PIPE, KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
-[_ADJUST] = LAYOUT_ortho_4x12(
+[_COMMAND] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
       RESET,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,   KC_NO,   KC_NO,   KC_COPY, KC_VOLU, KC_MPLY,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,   KC_NO,   KC_NO,   KC_PSTE, KC_VOLD, KC_MUTE,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,            KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
-)
+),
+
 
 
 /* Qwerty
@@ -179,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  return update_tri_layer_state(state, _NUMPAD, _FKEYPAD, _COMMAND);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
