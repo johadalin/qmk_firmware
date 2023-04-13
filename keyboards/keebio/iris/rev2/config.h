@@ -20,11 +20,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // AJL Diff from merge of master
 // <<<<<<< HEAD
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xCB10
-#define PRODUCT_ID      0x2256
-#define DEVICE_VER      0x0200
-#define MANUFACTURER    Keebio
-#define PRODUCT         Keebio Iris Rev. 2
+//#define VENDOR_ID       0xCB10
+//#define PRODUCT_ID      0x2256
+//#define DEVICE_VER      0x0200
+//#define MANUFACTURER    Keebio
+//#define PRODUCT         "Keebio Iris Rev. 2"
 
 /* Attempt autodetect USB master */
 #define SPLIT_USB_DETECT
