@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_SYMBOL] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_RBT,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_GRV,  KC_LCBR, KC_RCBR, KC_UNDS, KC_NO,  KC_BSPC,
+      QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_GRV,  KC_LCBR, KC_RCBR, KC_UNDS, KC_NO,  KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_TAB,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       LSFT(KC_INS), KC_LBRC, KC_RBRC, KC_MINS, KC_NUBS, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_COMMAND] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_RBT,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_NO,   KC_NO,   KC_NO,   KC_COPY, KC_VOLU, KC_MPLY,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
