@@ -33,7 +33,7 @@
 typedef enum {
     // You could theoretically define 0b00 and send it by having a macro send
     // the second tap after LED_CMD_TIMEOUT has elapsed.
-    // CMD_EXTRA = 0b00,
+    CMD_EXTRA = 0b00,
     TG_SCROLL = 0b01,
     CYC_DPI   = 0b10,
     CMD_RESET = 0b11 // CMD_ prefix to avoid clash with QMK macro
@@ -93,6 +93,7 @@ uint32_t command_timeout(uint32_t trigger_time, void *cb_arg) {
     uprintf("Received command 0b%02b (", cmd_window_state->led_cmd);
 #   endif
     switch (cmd_window_state->led_cmd) {
+        case CMD_EXTRA:
         case TG_SCROLL:
 #           ifdef CONSOLE_ENABLE
             uprint("TG_SCROLL)\n");
