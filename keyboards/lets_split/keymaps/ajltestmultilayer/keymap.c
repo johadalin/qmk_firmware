@@ -75,11 +75,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_COMMAND] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      QK_BOOT, KC_NO,   KC_NO,   KC_MPRV, KC_MNXT, KC_MSTP,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_COPY, KC_VOLU, KC_MPLY,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_VOLU, KC_MPLY,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_NO,   KC_NO,   KC_NO,   KC_PSTE, KC_VOLD, KC_MUTE,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_VOLD, KC_MUTE,          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,            KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
