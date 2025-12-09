@@ -9,19 +9,22 @@
 #define _FKEYPAD 5
 #define _SYMBOL 6
 #define _COMMAND 7
+#define _LEFTNUM 8
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   NUMPAD,
   FKEYPAD,
   SYMBOL,
-  COMMAND
+  COMMAND,
+  LEFTNUM
 };
 
 #define NUMPAD  MO(_NUMPAD)
 #define FKEYPAD MO(_FKEYPAD)
 #define SYMBOL  MO(_SYMBOL)
 #define CMD     MO(_COMMAND)
+#define LEFTNUM MO(_LEFTNUM)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -69,7 +72,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_PSCR, KC_LPRN, KC_RPRN, KC_NUHS, KC_SLSH, KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_LCTL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PIPE, KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_NO
+      KC_LCTL, KC_TRNS, KC_TRNS, KC_TRNS, LEFTNUM, KC_TRNS,          KC_PIPE, KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_NO
+  //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
+),
+
+[_LEFTNUM] = LAYOUT_ortho_4x12(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
+      KC_NO,   KC_7,    KC_8,    KC_9,    KC_NO,   KC_NO,            KC_GRV,  KC_LCBR, KC_RCBR, KC_UNDS, KC_NO,  KC_BSPC,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
+      KC_TAB,  KC_4,    KC_5,    KC_6,    KC_NO,   KC_NO,       LSFT(KC_INS), KC_LBRC, KC_RBRC, KC_MINS, KC_NUBS, KC_DEL,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
+      KC_LSFT, KC_1,    KC_2,    KC_3,    KC_NO,   KC_NO,            KC_PSCR, KC_LPRN, KC_RPRN, KC_NUHS, KC_SLSH, KC_NO,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
+      KC_LCTL, KC_TRNS, KC_0,   KC_PDOT,  KC_TRNS, KC_TRNS,          KC_PIPE, KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_NO
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
