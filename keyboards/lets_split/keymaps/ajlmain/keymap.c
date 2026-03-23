@@ -36,15 +36,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_NUHS),
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_LCTL, SYMBOL,  KC_LALT, KC_LGUI,  NUMPAD,  KC_SPC,     KC_ENT, LT(FKEYPAD, KC_NUM), KC_LEFT, KC_RGHT, KC_PIPE, KC_NUBS
+      KC_LCTL, SYMBOL,  KC_LALT, KC_LGUI,  NUMPAD,  KC_SPC,     KC_ENT, LT(FKEYPAD, KC_NUM), KC_APP, KC_RGHT, KC_PIPE, KC_NUBS
   //└────────┴────────┴────────┴────────┴────────┴────────┘        └────────┴────────┴────────┴────────┴────────┴────────┘
 ),
 
 [_NUMPAD] = LAYOUT_ortho_4x12(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_ESC,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NUM,  KC_7,    KC_8,    KC_9,   KC_MINS, KC_BSPC,
+      KC_ESC,  KC_NO,   KC_UP,   KC_NO,   KC_HOME, KC_END,           KC_NUM,  KC_7,    KC_8,    KC_9,   KC_MINS, KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_TAB,  KC_NO,   KC_LEFT, KC_RGHT, KC_UP,   KC_PGUP,          KC_PSLS, KC_4,    KC_5,    KC_6,   KC_PPLS, KC_DEL,
+      KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_UP,   KC_PGUP,          KC_PSLS, KC_4,    KC_5,    KC_6,   KC_PPLS, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_LSFT, KC_NO,   KC_HOME, KC_INS,  KC_DOWN, KC_PGDN,          KC_PAST, KC_1,    KC_2,    KC_3,   KC_EQL,  KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
