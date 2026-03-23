@@ -33,5 +33,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 #define MASTER_LEFT
 // #define MASTER_RIGHT
-#define EE_HANDS
+
+// Removed EE_HANDS in favour of a straight `#define MASTER_LEFT` on building with
+// an RP2040, which doens't have intrinsic EEPROM memory.
+// #define EE_HANDS
+
 #define SPLIT_USB_DETECT
