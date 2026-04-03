@@ -38,8 +38,8 @@
 
 /* ws2812 RGB LED */
 #define RGB_DI_PIN D3
-#define RGBLED_NUM 12    // Number of LEDs
-#define RGBLED_SPLIT { 6, 6 }
+//#define RGBLED_NUM 12    // Number of LEDs
+//#define RGBLED_SPLIT { 6, 6 }
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD
 #define RGBLIGHT_EFFECT_RAINBOW_SWIRL

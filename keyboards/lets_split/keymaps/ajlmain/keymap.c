@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,       LSFT(KC_INS), KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PGUP, KC_BTN1, KC_BTN2, KC_BTN3, KC_NO,  KC_DEL,
+      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PGUP, MS_BTN1, MS_BTN2, MS_BTN3, KC_NO,  KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_PGDN,  KC_HOME,  KC_END, KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐        ┌────────┬────────┬────────┬────────┬────────┬────────┐
       QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   QK_LLCK,          KC_GRV,  KC_LCBR, KC_RCBR, KC_UNDS, KC_NO,  KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
-      KC_TAB,  KC_NO,   KC_BTN3, KC_BTN2, KC_BTN1, KC_NO,       LSFT(KC_INS), KC_LBRC, KC_RBRC, KC_MINS, KC_NUBS, KC_DEL,
+      KC_TAB,  KC_NO,   MS_BTN3, MS_BTN2, MS_BTN1, KC_NO,       LSFT(KC_INS), KC_LBRC, KC_RBRC, KC_MINS, KC_NUBS, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
       KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NUM,   KC_NO,           KC_PSCR, KC_LPRN, KC_RPRN, KC_NUHS, KC_SLSH, KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┤        ├────────┼────────┼────────┼────────┼────────┼────────┤
