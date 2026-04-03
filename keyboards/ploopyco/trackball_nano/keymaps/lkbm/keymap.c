@@ -18,6 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "deferred_exec.h"
 #include "print.h"
 
 #define NUM_LOCK_BITMASK 0b01
